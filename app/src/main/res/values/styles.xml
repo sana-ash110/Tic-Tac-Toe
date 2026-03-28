@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.TicTacToe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/neon_cyan</item>
+        <item name="colorPrimaryVariant">@color/neon_purple</item>
+        <item name="colorOnPrimary">@color/bg_dark</item>
+        <item name="colorSecondary">@color/neon_pink</item>
+        <item name="colorSurface">@color/card_bg</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+    </style>
+
+    <!--
+        CellButton — each square of the 3×3 board.
+        Uses layout_columnWeight / layout_rowWeight so the grid fills width evenly.
+    -->
+    <style name="CellButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:minHeight">100dp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/card_bg</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="rippleColor">@color/neon_cyan</item>
+    </style>
+
+</resources>

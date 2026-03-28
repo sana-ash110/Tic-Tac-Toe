@@ -1,116 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/bg_dark"
+    android:padding="24dp"
     tools:context=".MainActivity">
 
     <!-- Title -->
-
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="Tic Tac Toe"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        android:text="TIC TAC TOE"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:textColor="@color/neon_cyan"
+        android:layout_marginBottom="6dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="134dp"
+
+    <!-- Status / Turn indicator card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Player X Turn"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="28dp"
+        app:cardBackgroundColor="@color/card_bg"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <GridLayout android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:columnCount="3"
-    android:rowCount="3">
-    <Button
-        android:id="@+id/button"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:text="Button1"
-        app:iconPadding="0dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="0"
-        android:layout_column="1"
-        android:text="Button2" />
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Player X's Turn"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/neon_cyan"
+                android:gravity="center" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="0"
-        android:layout_column="2"
-        android:text="Button3" />
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="1"
-        android:layout_column="0"
-        android:text="Button4"
-        app:iconPadding="0dp" />
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="1"
-        android:layout_column="1"
-        android:text="Button5"
-        app:iconPadding="0dp" />
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="1"
-        android:layout_column="2"
-        android:text="Button6"
-        app:iconPadding="0dp" />
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="2"
-        android:layout_column="0"
-        android:text="Button7"
-        app:iconPadding="0dp" />
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="2"
-        android:layout_column="1"
-        android:text="Button8"
-        app:iconPadding="0dp" />
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_row="2"
-        android:layout_column="2"
-        android:text="Button9"
-        app:iconPadding="0dp" />
-</GridLayout>
+            <!-- Score Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="12dp">
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/neon_cyan" />
+
+                    <TextView
+                        android:id="@+id/tvScoreX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DRAW"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.2"
+                        android:textColor="@color/neon_yellow" />
+
+                    <TextView
+                        android:id="@+id/tvScoreDraw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="@color/divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="O"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/neon_pink" />
+
+                    <TextView
+                        android:id="@+id/tvScoreO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Game Board Grid (3x3) -->
+    <GridLayout
+        android:id="@+id/gameGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:layout_marginBottom="28dp">
+
+        <!-- Row 0 -->
+        <Button android:id="@+id/btn00" style="@style/CellButton" android:layout_row="0" android:layout_column="0" />
+        <Button android:id="@+id/btn01" style="@style/CellButton" android:layout_row="0" android:layout_column="1" />
+        <Button android:id="@+id/btn02" style="@style/CellButton" android:layout_row="0" android:layout_column="2" />
+
+        <!-- Row 1 -->
+        <Button android:id="@+id/btn10" style="@style/CellButton" android:layout_row="1" android:layout_column="0" />
+        <Button android:id="@+id/btn11" style="@style/CellButton" android:layout_row="1" android:layout_column="1" />
+        <Button android:id="@+id/btn12" style="@style/CellButton" android:layout_row="1" android:layout_column="2" />
+
+        <!-- Row 2 -->
+        <Button android:id="@+id/btn20" style="@style/CellButton" android:layout_row="2" android:layout_column="0" />
+        <Button android:id="@+id/btn21" style="@style/CellButton" android:layout_row="2" android:layout_column="1" />
+        <Button android:id="@+id/btn22" style="@style/CellButton" android:layout_row="2" android:layout_column="2" />
+    </GridLayout>
+
+    <!-- Reset Button -->
     <Button
-        android:id="@+id/button10"
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:text="Reset " />
+        android:id="@+id/btnReset"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="NEW GAME"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:textColor="@color/bg_dark"
+        android:backgroundTint="@color/neon_cyan"
+        android:stateListAnimator="@null"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Reset Scores Button -->
+    <Button
+        android:id="@+id/btnResetScores"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="RESET SCORES"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"
+        android:textColor="@color/neon_pink"
+        android:backgroundTint="@color/card_bg"
+        android:stateListAnimator="@null" />
 
 </LinearLayout>
